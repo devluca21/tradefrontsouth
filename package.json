@@ -1,6 +1,7 @@
 {
   "name": "tradefront-south",
   "version": "0.1.0",
+  "author": "devxbt21",
   "private": true,
   "scripts": {
     "dev": "next dev",

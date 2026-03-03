@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Where advisor/rep receives the emails (e.g. advisors@tradefrontsouth.com)
 const TO_EMAIL = process.env.CONTACT_EMAIL_TO || "contact@tradefrontsouth.com";
 // Sender "from" - use a verified domain in Resend or onboarding@resend.dev for testing
@@ -25,12 +23,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!process.env.RESEND_API_KEY) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
       return NextResponse.json(
         { error: "Email is not configured. Please set RESEND_API_KEY." },
         { status: 503 }
       );
     }
+
+    const resend = new Resend(apiKey);
 
     const serviceLabel =
       { escrow: "Escrow", investment: "REIT-style investment", sell: "Selling my property", general: "General inquiry" }[
