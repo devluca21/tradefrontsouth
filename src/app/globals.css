@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #001C3D;
+  --white: #ffffff;
+  --orange: #FF6B00;
+}
+
+body {
+  @apply antialiased text-navy bg-white;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
