@@ -13,9 +13,16 @@ const serviceOptions = [
   { value: "general", label: "General inquiry" },
 ];
 
-export default function ContactForm() {
+type ContactFormProps = {
+  defaultService?: string;
+  formId?: string;
+  compact?: boolean;
+};
+
+export default function ContactForm({ defaultService, formId = "contact", compact }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const id = (name: string) => `${formId}-${name}`;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -24,7 +31,7 @@ export default function ContactForm() {
     const body = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
-      service: formData.get("service") as string,
+      service: (formData.get("service") as string) || defaultService || "",
       message: formData.get("message") as string,
     };
 
@@ -64,14 +71,35 @@ export default function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       onSubmit={handleSubmit}
-      className="mx-auto mt-10 max-w-lg space-y-5 text-left"
+      className={`mx-auto space-y-5 text-left ${compact ? "max-w-md" : "mt-10 max-w-lg"}`}
     >
+      {defaultService ? (
+        <input type="hidden" name="service" value={defaultService} />
+      ) : (
+        <div>
+          <label htmlFor={id("service")} className="mb-1.5 block text-sm font-medium text-navy">
+            Service
+          </label>
+          <select
+            id={id("service")}
+            name="service"
+            className="w-full rounded-sm border border-navy/20 bg-white px-4 py-3 text-navy focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange disabled:text-navy/60"
+            disabled={status === "sending"}
+          >
+            {serviceOptions.map((opt) => (
+              <option key={opt.value || "default"} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
       <div>
-        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-navy">
+        <label htmlFor={id("name")} className="mb-1.5 block text-sm font-medium text-navy">
           Name
         </label>
         <input
-          id="name"
+          id={id("name")}
           name="name"
           type="text"
           required
@@ -82,11 +110,11 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-navy">
+        <label htmlFor={id("email")} className="mb-1.5 block text-sm font-medium text-navy">
           Email
         </label>
         <input
-          id="email"
+          id={id("email")}
           name="email"
           type="email"
           required
@@ -97,31 +125,14 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-navy">
-          Service
-        </label>
-        <select
-          id="service"
-          name="service"
-          className="w-full rounded-sm border border-navy/20 bg-white px-4 py-3 text-navy focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange disabled:text-navy/60"
-          disabled={status === "sending"}
-        >
-          {serviceOptions.map((opt) => (
-            <option key={opt.value || "default"} value={opt.value}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-navy">
+        <label htmlFor={id("message")} className="mb-1.5 block text-sm font-medium text-navy">
           Message
         </label>
         <textarea
-          id="message"
+          id={id("message")}
           name="message"
           required
-          rows={5}
+          rows={compact ? 4 : 5}
           className="w-full resize-y rounded-sm border border-navy/20 bg-white px-4 py-3 text-navy placeholder:text-navy/50 focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange disabled:text-navy/60"
           placeholder="How can we help?"
           disabled={status === "sending"}
@@ -150,7 +161,7 @@ export default function ContactForm() {
             Sending…
           </span>
         ) : (
-          "Send message to advisor"
+          defaultService ? "Send to advisor" : "Send message to advisor"
         )}
       </button>
     </motion.form>

@@ -1,45 +1,28 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "#what-we-do", label: "What We Do" },
-  { href: "#strategies", label: "Services" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#what-we-do", label: "What We Do" },
+  { href: "/#strategies", label: "Services" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 48);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <motion.header
-      initial={false}
-      animate={{
-        backgroundColor: scrolled ? "rgba(0, 28, 61, 0.98)" : "rgba(0, 28, 61, 0)",
-        backdropFilter: scrolled ? "blur(12px)" : "blur(0px)",
-      }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/0 transition-colors"
-      style={{
-        borderBottomColor: scrolled ? "rgba(255,255,255,0.08)" : "transparent",
-      }}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-navy shadow-[0_1px_0_0_rgba(255,255,255,0.06)]">
       <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6 lg:px-10">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-white"
+          className="inline-flex items-baseline gap-1.5 text-white"
         >
-          TRADEFRONT
+          <span className="text-lg font-semibold tracking-tight">TRADEFRONT</span>
+          <span className="text-xs font-extralight tracking-widest text-white/90">SOUTH</span>
         </Link>
 
         {/* Desktop */}
@@ -57,7 +40,7 @@ export default function Nav() {
           ))}
           <li>
             <Link
-              href="#contact"
+              href="/#contact"
               className="inline-flex items-center rounded-sm bg-orange px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-orange-hover"
             >
               Speak to an Advisor
@@ -98,7 +81,7 @@ export default function Nav() {
             ))}
             <li>
               <Link
-                href="#contact"
+                href="/#contact"
                 onClick={() => setMobileOpen(false)}
                 className="mt-2 block rounded-sm bg-orange px-5 py-3 text-center font-medium text-white"
               >
@@ -108,6 +91,6 @@ export default function Nav() {
           </ul>
         </motion.div>
       )}
-    </motion.header>
+    </header>
   );
 }

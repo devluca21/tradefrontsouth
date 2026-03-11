@@ -15,9 +15,9 @@ const config: Config = {
           light: "#002952",
         },
         orange: {
-          DEFAULT: "#FF6B00",
-          hover: "#E55F00",
-          light: "#FF8533",
+          DEFAULT: "#C9942E",
+          hover: "#B07D22",
+          light: "#D4A854",
         },
       },
       fontFamily: {

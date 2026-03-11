@@ -12,8 +12,8 @@ const cards = [
       "Escrow tailored to DR real estate. Funds stay safe; developers get what they need for construction. All parties protected.",
     image:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800",
-    href: "#contact",
-    cta: "Speak to an Advisor",
+    href: "/services/escrow",
+    cta: "Learn more",
   },
   {
     title: "Real estate investment",
@@ -21,7 +21,7 @@ const cards = [
       "REIT-style investment with dividend payouts, like traditional REIT funds. Institutional-style returns and regular income.",
     image:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800",
-    href: "#contact",
+    href: "/services/investment",
     cta: "Learn more",
   },
   {
@@ -30,8 +30,8 @@ const cards = [
       "Legal support for DR real estate: due diligence, contracts, compliance, and closings so your transactions stay secure and compliant.",
     image:
       "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800",
-    href: "#contact",
-    cta: "Speak to an Advisor",
+    href: "/services/legal",
+    cta: "Learn more",
   },
   {
     title: "Sell your property",
@@ -39,8 +39,8 @@ const cards = [
       "We connect homeowners with the most trusted real estate agencies in the Dominican Republic to get your property sold.",
     image:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800",
-    href: "#contact",
-    cta: "Connect with an Advisor",
+    href: "/services/sell",
+    cta: "Learn more",
   },
 ];
 
