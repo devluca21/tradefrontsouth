@@ -7,7 +7,7 @@ import { ChevronRight } from "lucide-react";
 const nextStep = {
   label: "Next step",
   title: "What We Do",
-  description: "Escrow, REIT-style investment, and trusted agency connections for selling your property.",
+  description: "Escrow, REIT-style investment, legal services, and trusted agency connections for selling your property.",
   href: "#what-we-do",
   cta: "Explore our services",
 };

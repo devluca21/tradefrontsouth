@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "TradeFront South | Real Estate Services in the Dominican Republic",
   description:
-    "Escrow for DR real estate. REIT-style investment and dividends. Trusted agency connections to sell your property. Speak to an advisor.",
+    "Escrow for DR real estate. REIT-style investment and dividends. Legal services. Trusted agency connections to sell your property. Speak to an advisor.",
 };
 
 export default function RootLayout({

@@ -20,7 +20,7 @@ export default function ContactSection() {
             Speak to an Advisor
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-navy/80">
-            Send a message and an advisor will reply to your email.
+            Whether you need escrow, investment, legal support, or help selling your property—send a message and an advisor will reply.
           </p>
         </motion.div>
         <ContactForm />

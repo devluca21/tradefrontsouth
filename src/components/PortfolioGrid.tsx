@@ -25,6 +25,15 @@ const cards = [
     cta: "Learn more",
   },
   {
+    title: "Legal services",
+    description:
+      "Legal support for DR real estate: due diligence, contracts, compliance, and closings so your transactions stay secure and compliant.",
+    image:
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800",
+    href: "#contact",
+    cta: "Speak to an Advisor",
+  },
+  {
     title: "Sell your property",
     description:
       "We connect homeowners with the most trusted real estate agencies in the Dominican Republic to get your property sold.",
@@ -56,7 +65,7 @@ export default function PortfolioGrid() {
           Our core services
         </motion.h2>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {cards.map((card, i) => (
             <motion.article
               key={card.title}
@@ -71,7 +80,7 @@ export default function PortfolioGrid() {
                 alt={card.title}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
               {/* Dark blue footer overlay - expands on hover */}
               <div className="absolute inset-x-0 bottom-0 flex flex-col justify-end bg-gradient-to-t from-navy via-navy/95 to-transparent p-6 pt-24 transition-all duration-300 group-hover:from-navy group-hover:pt-12">

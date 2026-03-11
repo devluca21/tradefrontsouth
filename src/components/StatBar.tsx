@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 const stats = [
   { value: "Escrow", label: "Fully managed, DR-focused" },
   { value: "REIT-style", label: "Investment & dividends" },
+  { value: "Legal", label: "Legal services" },
   { value: "Sell", label: "Trusted agency network" },
   { value: "Advisors", label: "Ready to guide you" },
 ];
@@ -30,7 +31,7 @@ export default function StatBar() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-80px" }}
-        className="mx-auto grid max-w-[1400px] grid-cols-2 gap-8 px-6 md:grid-cols-4 md:gap-0 md:px-10"
+        className="mx-auto grid max-w-[1400px] grid-cols-2 gap-8 px-6 md:grid-cols-5 md:gap-0 md:px-10"
       >
         {stats.map((stat, i) => (
           <motion.div
@@ -38,7 +39,7 @@ export default function StatBar() {
             variants={item}
             transition={{ duration: 0.4 }}
             className={`flex flex-col items-center text-center md:items-start md:text-left ${
-              i > 0 && i < 4 ? "md:border-l md:border-navy/15 md:pl-10" : ""
+              i > 0 ? "md:border-l md:border-navy/15 md:pl-8" : ""
             }`}
           >
             <span className="text-3xl font-bold tracking-tight text-navy md:text-4xl">

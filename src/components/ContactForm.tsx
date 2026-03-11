@@ -8,6 +8,7 @@ const serviceOptions = [
   { value: "", label: "What are you interested in?" },
   { value: "escrow", label: "Escrow services" },
   { value: "investment", label: "REIT-style investment" },
+  { value: "legal", label: "Legal services" },
   { value: "sell", label: "Selling my property" },
   { value: "general", label: "General inquiry" },
 ];

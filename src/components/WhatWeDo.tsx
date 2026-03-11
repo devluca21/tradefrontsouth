@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, TrendingUp, Home } from "lucide-react";
+import { ShieldCheck, TrendingUp, Home, Scale } from "lucide-react";
 
 const services = [
   {
@@ -15,6 +15,12 @@ const services = [
     title: "Real estate investment",
     description:
       "REIT-style investment with dividend payouts, similar to traditional REIT funds. Access institutional-style real estate returns and regular income.",
+  },
+  {
+    icon: Scale,
+    title: "Legal services",
+    description:
+      "Legal support for real estate transactions in the Dominican Republic. From due diligence and contracts to compliance and closings, we help keep your deals secure and compliant.",
   },
   {
     icon: Home,
@@ -42,7 +48,7 @@ export default function WhatWeDo() {
           viewport={{ once: true }}
           className="mt-2 max-w-3xl text-3xl font-bold tracking-tight text-navy md:text-4xl lg:text-5xl"
         >
-          Three ways we serve you in the Dominican Republic
+          Four ways we serve you in the Dominican Republic
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -50,10 +56,10 @@ export default function WhatWeDo() {
           viewport={{ once: true }}
           className="mt-6 max-w-2xl text-lg leading-relaxed text-navy/80"
         >
-          Escrow for safe transactions, REIT-style investment and dividends, and a trusted path to sell your property.
+          Escrow for safe transactions, REIT-style investment and dividends, legal services for your deals, and a trusted path to sell your property.
         </motion.p>
 
-        <div className="mt-16 grid gap-10 md:grid-cols-3 md:gap-12">
+        <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4 md:gap-12">
           {services.map((service, i) => (
             <motion.div
               key={service.title}

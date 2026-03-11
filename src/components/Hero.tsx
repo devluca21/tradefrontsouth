@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const eyebrow = "TRADEFRONT SOUTH";
 const headline = "Trusted Real Estate Services in the Dominican Republic";
 const subline =
-  "Escrow that protects buyers and developers. REIT-style investments with dividend payouts. And connections to the country’s most trusted agencies to sell your property.";
+  "Escrow that protects buyers and developers. REIT-style investments with dividend payouts. Legal services for your transactions. And connections to the country’s most trusted agencies to sell your property.";
 
 export default function Hero() {
   return (
