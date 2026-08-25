@@ -1,19 +1,27 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Cormorant_Garamond, Outfit } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import NextStepFooter from "@/components/NextStepFooter";
 
-const inter = Inter({
-  variable: "--font-geist-sans",
+const display = Cormorant_Garamond({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+const sans = Outfit({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "TradeFront South | Real Estate Services in the Dominican Republic",
+  title: "TradeFront South | Next-Generation Holding Company",
   description:
-    "Escrow for DR real estate. REIT-style investment and dividends. Legal services. Trusted agency connections to sell your property. Speak to an advisor.",
+    "TradeFront South guides and manages businesses across development, technology, real estate, and enterprise—clarity, stewardship, and long-term growth.",
 };
 
 export default function RootLayout({
@@ -22,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="font-sans min-h-screen flex flex-col">
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
+      <body className="font-sans min-h-screen flex flex-col text-ink">
         <Nav />
         <main className="flex-1">{children}</main>
         <NextStepFooter />

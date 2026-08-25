@@ -5,25 +5,26 @@ import ContactForm from "./ContactForm";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="border-t border-navy/10 bg-white py-20 md:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <p className="text-xs font-medium uppercase tracking-[0.25em] text-navy/70">
-            Get in touch
-          </p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-navy md:text-4xl">
-            Speak to an Advisor
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-navy/80">
-            Whether you need escrow, investment, legal support, or help selling your property—send a message and an advisor will reply.
-          </p>
-        </motion.div>
-        <ContactForm />
+    <section id="contact" className="border-t border-line py-20 md:py-28">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-[0.7rem] font-medium uppercase tracking-[0.28em] text-muted">
+              Contact
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
+              Start a conversation
+            </h2>
+            <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
+              Tell us where you are. We will reply with care.
+            </p>
+          </motion.div>
+          <ContactForm />
+        </div>
       </div>
     </section>
   );

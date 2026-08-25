@@ -9,19 +9,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        canvas: "#F6F7F9",
+        surface: "#FFFFFF",
+        ink: {
+          DEFAULT: "#1C2128",
+          soft: "#3D4654",
+        },
+        muted: "#5C6570",
+        accent: {
+          DEFAULT: "#3A4F63",
+          hover: "#2E4052",
+          soft: "#E8EEF3",
+        },
+        line: "rgba(28, 33, 40, 0.1)",
+        // keep aliases so older classnames don't break during transition
         navy: {
-          DEFAULT: "#001C3D",
-          dark: "#001429",
-          light: "#002952",
+          DEFAULT: "#1C2128",
+          dark: "#14181E",
+          light: "#3D4654",
         },
         orange: {
-          DEFAULT: "#C9942E",
-          hover: "#B07D22",
-          light: "#D4A854",
+          DEFAULT: "#3A4F63",
+          hover: "#2E4052",
+          light: "#5A7084",
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       letterSpacing: {
         tight: "-0.02em",

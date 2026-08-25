@@ -5,11 +5,9 @@ import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 
 const serviceOptions = [
-  { value: "", label: "What are you interested in?" },
-  { value: "escrow", label: "Escrow services" },
-  { value: "investment", label: "REIT-style investment" },
-  { value: "legal", label: "Legal services" },
-  { value: "sell", label: "Selling my property" },
+  { value: "", label: "What brings you here?" },
+  { value: "partnership", label: "Partnership / holding" },
+  { value: "advisory", label: "Guidance" },
   { value: "general", label: "General inquiry" },
 ];
 
@@ -65,25 +63,28 @@ export default function ContactForm({ defaultService, formId = "contact", compac
     }
   }
 
+  const field =
+    "w-full border border-line bg-surface px-4 py-3 text-ink placeholder:text-muted/60 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent disabled:opacity-60";
+
   return (
     <motion.form
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       onSubmit={handleSubmit}
-      className={`mx-auto space-y-5 text-left ${compact ? "max-w-md" : "mt-10 max-w-lg"}`}
+      className={`space-y-5 text-left ${compact ? "max-w-md" : "w-full max-w-lg lg:max-w-none lg:justify-self-end"}`}
     >
       {defaultService ? (
         <input type="hidden" name="service" value={defaultService} />
       ) : (
         <div>
-          <label htmlFor={id("service")} className="mb-1.5 block text-sm font-medium text-navy">
-            Service
+          <label htmlFor={id("service")} className="mb-1.5 block text-sm font-medium text-ink">
+            Interest
           </label>
           <select
             id={id("service")}
             name="service"
-            className="w-full rounded-sm border border-navy/20 bg-white px-4 py-3 text-navy focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange disabled:text-navy/60"
+            className={field}
             disabled={status === "sending"}
           >
             {serviceOptions.map((opt) => (
@@ -95,7 +96,7 @@ export default function ContactForm({ defaultService, formId = "contact", compac
         </div>
       )}
       <div>
-        <label htmlFor={id("name")} className="mb-1.5 block text-sm font-medium text-navy">
+        <label htmlFor={id("name")} className="mb-1.5 block text-sm font-medium text-ink">
           Name
         </label>
         <input
@@ -104,13 +105,13 @@ export default function ContactForm({ defaultService, formId = "contact", compac
           type="text"
           required
           autoComplete="name"
-          className="w-full rounded-sm border border-navy/20 bg-white px-4 py-3 text-navy placeholder:text-navy/50 focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange"
+          className={field}
           placeholder="Your name"
           disabled={status === "sending"}
         />
       </div>
       <div>
-        <label htmlFor={id("email")} className="mb-1.5 block text-sm font-medium text-navy">
+        <label htmlFor={id("email")} className="mb-1.5 block text-sm font-medium text-ink">
           Email
         </label>
         <input
@@ -119,13 +120,13 @@ export default function ContactForm({ defaultService, formId = "contact", compac
           type="email"
           required
           autoComplete="email"
-          className="w-full rounded-sm border border-navy/20 bg-white px-4 py-3 text-navy placeholder:text-navy/50 focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange"
-          placeholder="you@example.com"
+          className={field}
+          placeholder="you@company.com"
           disabled={status === "sending"}
         />
       </div>
       <div>
-        <label htmlFor={id("message")} className="mb-1.5 block text-sm font-medium text-navy">
+        <label htmlFor={id("message")} className="mb-1.5 block text-sm font-medium text-ink">
           Message
         </label>
         <textarea
@@ -133,8 +134,8 @@ export default function ContactForm({ defaultService, formId = "contact", compac
           name="message"
           required
           rows={compact ? 4 : 5}
-          className="w-full resize-y rounded-sm border border-navy/20 bg-white px-4 py-3 text-navy placeholder:text-navy/50 focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange disabled:text-navy/60"
-          placeholder="How can we help?"
+          className={`${field} resize-y`}
+          placeholder="Tell us briefly about your company or need."
           disabled={status === "sending"}
         />
       </div>
@@ -145,15 +146,15 @@ export default function ContactForm({ defaultService, formId = "contact", compac
         </p>
       )}
       {status === "success" && (
-        <p className="text-sm text-green-700" role="status">
-          Thank you. Your message has been sent and an advisor will be in touch.
+        <p className="text-sm text-accent" role="status">
+          Thank you. Your message has been sent—we will be in touch.
         </p>
       )}
 
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded-sm bg-orange px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-orange-hover disabled:opacity-70"
+        className="w-full bg-ink px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-ink-soft disabled:opacity-70"
       >
         {status === "sending" ? (
           <span className="inline-flex items-center justify-center gap-2">
@@ -161,7 +162,7 @@ export default function ContactForm({ defaultService, formId = "contact", compac
             Sending…
           </span>
         ) : (
-          defaultService ? "Send to advisor" : "Send message to advisor"
+          "Send message"
         )}
       </button>
     </motion.form>

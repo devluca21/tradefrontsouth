@@ -34,9 +34,11 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(apiKey);
 
     const serviceLabel =
-      { escrow: "Escrow", investment: "REIT-style investment", legal: "Legal services", sell: "Selling my property", general: "General inquiry" }[
-        service as string
-      ] || service || "Not specified";
+      {
+        partnership: "Partnership / holding",
+        advisory: "Guidance",
+        general: "General inquiry",
+      }[service as string] || service || "Not specified";
 
     const escape = (s: string) =>
       s

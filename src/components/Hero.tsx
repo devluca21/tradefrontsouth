@@ -3,71 +3,69 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const eyebrow = "TRADEFRONT SOUTH";
-const headline = "Trusted Real Estate Services in the Dominican Republic";
-const subline =
-  "Escrow that protects buyers and developers. REIT-style investments with dividend payouts. Legal services for your transactions. And connections to the country’s most trusted agencies to sell your property.";
-
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] w-full overflow-hidden md:min-h-[95vh]">
-      {/* High-res background image */}
+    <section className="relative min-h-[92vh] w-full overflow-hidden md:min-h-[95vh]">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
-          alt="Real estate in the Dominican Republic"
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2400"
+          alt="Contemporary urban architecture"
           fill
           priority
-          className="object-cover"
+          className="object-cover object-center scale-105"
           sizes="100vw"
         />
-        {/* Dark blue overlay gradient */}
         <div
-          className="absolute inset-0 bg-navy/70"
+          className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(0,28,61,0.5) 0%, rgba(0,28,61,0.75) 40%, rgba(0,28,61,0.92) 100%)",
+              "linear-gradient(105deg, rgba(246,247,249,0.92) 0%, rgba(246,247,249,0.78) 45%, rgba(246,247,249,0.55) 100%)",
           }}
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex min-h-[90vh] flex-col justify-end px-6 pb-20 pt-28 md:min-h-[95vh] md:max-w-[1400px] md:px-10 md:pb-28 md:pt-36">
+      <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-[1200px] flex-col justify-center px-6 pb-16 pt-24 md:min-h-[95vh] md:px-10 md:pb-20 md:pt-28">
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-white/80"
+          transition={{ duration: 0.55, delay: 0.05 }}
+          className="font-display text-5xl font-semibold tracking-[0.02em] text-ink sm:text-6xl md:text-7xl lg:text-[5.5rem]"
         >
-          {eyebrow}
+          TRADEFRONT
+          <span className="mt-1 block font-sans text-xs font-medium uppercase tracking-[0.5em] text-ink/50 sm:text-sm md:mt-2">
+            South
+          </span>
         </motion.p>
+
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl xl:text-7xl"
+          transition={{ duration: 0.55, delay: 0.2 }}
+          className="mt-8 max-w-2xl font-display text-2xl font-medium leading-snug tracking-tight text-ink-soft md:mt-10 md:text-3xl lg:text-[2.15rem]"
         >
-          {headline}
+          A next-generation holding company.
         </motion.h1>
+
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-6 max-w-xl text-base leading-relaxed text-white/90 md:text-lg"
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="mt-5 max-w-md text-base leading-relaxed text-muted md:text-lg"
         >
-          {subline}
+          We guide and manage businesses with clarity, stewardship, and a long view.
         </motion.p>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.45, delay: 0.5 }}
           className="mt-10"
         >
           <a
-            href="#what-we-do"
-            className="inline-flex items-center rounded-sm bg-orange px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-orange-hover"
+            href="#contact"
+            className="inline-flex items-center bg-ink px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-ink-soft"
           >
-            Explore
+            Speak with us
           </a>
         </motion.div>
       </div>

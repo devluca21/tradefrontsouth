@@ -3,16 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --navy: #001C3D;
-  --white: #ffffff;
-  --orange: #C9942E;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #1c2128;
+  --muted: #5c6570;
+  --accent: #3a4f63;
+  --line: rgba(28, 33, 40, 0.1);
 }
 
 body {
-  @apply antialiased text-navy bg-white;
+  @apply antialiased text-ink bg-canvas;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 10% -20%, rgba(58, 79, 99, 0.06), transparent 55%),
+    radial-gradient(ellipse 90% 60% at 100% 0%, rgba(28, 33, 40, 0.04), transparent 50%);
+  background-attachment: fixed;
 }
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(58, 79, 99, 0.18);
 }
