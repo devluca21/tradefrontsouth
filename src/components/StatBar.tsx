@@ -20,7 +20,7 @@ export default function StatBar() {
           viewport={{ once: true }}
           className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-snug tracking-tight text-ink md:text-4xl lg:text-[2.75rem]"
         >
-          Built to support companies across business, development, technology, and real estate—wherever growth needs steady hands.
+          Built to support companies across business, development, technology, and real estate, wherever growth needs steady hands.
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}

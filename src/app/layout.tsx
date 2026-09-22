@@ -14,14 +14,14 @@ const display = Cormorant_Garamond({
 const sans = Outfit({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["200", "300", "400", "500", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "TradeFront South | Next-Generation Holding Company",
   description:
-    "TradeFront South guides and manages businesses across development, technology, real estate, and enterprise—clarity, stewardship, and long-term growth.",
+    "TradeFront South guides and manages businesses across development, technology, real estate, and enterprise: clarity, stewardship, and long-term growth.",
 };
 
 export default function RootLayout({

@@ -28,7 +28,7 @@ export default function WhatWeDo() {
           viewport={{ once: true }}
           className="mt-6 max-w-2xl text-lg leading-relaxed text-muted"
         >
-          We partner with leadership to set direction, oversee what matters, and stay for the long work—structure without noise, capital with care, and a network activated only when it helps.
+          We partner with leadership to set direction, oversee what matters, and stay for the long work: structure without noise, capital with care, and a network activated only when it helps.
         </motion.p>
       </div>
     </section>

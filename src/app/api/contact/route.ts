@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
     const safeEmail = escape(email.trim());
     const safeMessage = message.trim().replace(/\n/g, "<br>").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-    const subject = `Contact: ${name.trim()} – ${serviceLabel}`;
+    const subject = `Contact: ${name.trim()} - ${serviceLabel}`;
     const html = `
       <p><strong>From:</strong> ${safeName} &lt;${safeEmail}&gt;</p>
       <p><strong>Service:</strong> ${serviceLabel}</p>

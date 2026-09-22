@@ -78,7 +78,7 @@ export default async function ServicePage({ params }: Props) {
             Talk with us
           </h2>
           <p className="mt-3 text-muted">
-            Send a note about {service.title.toLowerCase()}—we will follow up.
+            Send a note about {service.title.toLowerCase()}. We will follow up.
           </p>
           <div className="mt-8">
             <ContactForm

@@ -147,7 +147,7 @@ export default function ContactForm({ defaultService, formId = "contact", compac
       )}
       {status === "success" && (
         <p className="text-sm text-accent" role="status">
-          Thank you. Your message has been sent—we will be in touch.
+          Thank you. Your message has been sent. We will be in touch.
         </p>
       )}
 

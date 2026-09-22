@@ -8,7 +8,7 @@ const capabilities = [
   {
     title: "Portfolio stewardship",
     description:
-      "Oversight across holdings—performance, governance, and alignment so each business stays focused on what matters.",
+      "Oversight across holdings: performance, governance, and alignment so each business stays focused on what matters.",
     href: "/services/stewardship",
   },
   {
@@ -26,7 +26,7 @@ const capabilities = [
   {
     title: "Strategic advisory",
     description:
-      "Counsel on structure, transactions, and risk—so leadership can move with clarity instead of guesswork.",
+      "Counsel on structure, transactions, and risk, so leadership can move with clarity instead of guesswork.",
     href: "/services/advisory",
   },
 ];
