@@ -28,7 +28,7 @@ export default function NextStepFooter() {
               Approach
             </Link>
             <Link href="/#portfolio" className="hover:text-ink">
-              Portfolio
+              Companies
             </Link>
             <Link href="/#contact" className="hover:text-ink">
               Contact

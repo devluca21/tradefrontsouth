@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import DelEsteLogo from "./DelEsteLogo";
 import SocoLogo from "./SocoLogo";
 
 const holdings = [
@@ -25,6 +26,13 @@ const holdings = [
     href: "https://www.socoacquisitions.com",
     sector: "Real estate & development",
     kind: "soco" as const,
+  },
+  {
+    name: "Del Este Financial",
+    domain: null,
+    href: null,
+    sector: "Private equity & financing",
+    kind: "deleste" as const,
   },
 ] as const;
 
@@ -59,56 +67,78 @@ export default function HoldingsPortfolio() {
           </motion.p>
         </div>
 
-        <div className="mt-16 grid gap-16 md:mt-20 md:grid-cols-2 md:gap-0">
-          {holdings.map((company, i) => (
-            <motion.a
-              key={company.domain}
-              href={company.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`group flex flex-col ${
-                i === 0
-                  ? "md:border-r md:border-line md:pr-14 lg:pr-20"
-                  : "md:pl-14 lg:pl-20"
-              }`}
-            >
-              <div className="flex min-h-[12rem] items-center justify-center md:min-h-[14rem]">
-                {company.kind === "soco" ? (
-                  <SocoLogo className="transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
-                ) : (
-                  <img
-                    src={company.logo.src}
-                    alt={company.logo.alt}
-                    width={company.logo.width}
-                    height={company.logo.height}
-                    decoding="async"
-                    className={`${company.logo.className} object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]`}
-                  />
-                )}
-              </div>
+        <div className="mt-16 grid gap-16 md:mt-20 lg:grid-cols-3 lg:gap-0">
+          {holdings.map((company, i) => {
+            const cardClass = `group flex flex-col ${
+              i > 0 ? "lg:border-l lg:border-line lg:pl-10" : ""
+            } ${i < holdings.length - 1 ? "lg:pr-10" : ""}`;
+            const motionProps = {
+              initial: { opacity: 0, y: 24 },
+              whileInView: { opacity: 1, y: 0 },
+              viewport: { once: true },
+              transition: { duration: 0.5, delay: i * 0.1 },
+            };
+            const body = (
+              <>
+                <div className="flex min-h-[12rem] items-center justify-center md:min-h-[14rem]">
+                  {company.kind === "soco" ? (
+                    <SocoLogo className="transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+                  ) : company.kind === "deleste" ? (
+                    <DelEsteLogo className="transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+                  ) : (
+                    <img
+                      src={company.logo.src}
+                      alt={company.logo.alt}
+                      width={company.logo.width}
+                      height={company.logo.height}
+                      decoding="async"
+                      className={`${company.logo.className} object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]`}
+                    />
+                  )}
+                </div>
 
-              <div className="mt-2 text-center md:mt-4">
-                <p className="text-[0.7rem] font-medium uppercase tracking-[0.22em] text-muted">
-                  {company.sector}
-                </p>
-                <h3 className="mt-2.5 font-display text-2xl font-semibold tracking-tight text-ink transition-colors duration-300 group-hover:text-accent md:text-[1.85rem]">
-                  {company.name}
-                </h3>
-                <span className="mt-6 inline-flex items-center justify-center gap-2 text-sm font-medium text-accent">
-                  Visit {company.domain}
-                  <ArrowUpRight
-                    size={16}
-                    strokeWidth={1.5}
-                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  />
-                </span>
-              </div>
-            </motion.a>
-          ))}
+                <div className="mt-2 text-center md:mt-4">
+                  <p className="text-[0.7rem] font-medium uppercase tracking-[0.22em] text-muted">
+                    {company.sector}
+                  </p>
+                  <h3 className="mt-2.5 font-display text-2xl font-semibold tracking-tight text-ink transition-colors duration-300 group-hover:text-accent md:text-[1.85rem]">
+                    {company.name}
+                  </h3>
+                  {company.href && company.domain ? (
+                    <span className="mt-6 inline-flex items-center justify-center gap-2 text-sm font-medium text-accent">
+                      Visit {company.domain}
+                      <ArrowUpRight
+                        size={16}
+                        strokeWidth={1.5}
+                        className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      />
+                    </span>
+                  ) : null}
+                </div>
+              </>
+            );
+
+            if (company.href) {
+              return (
+                <motion.a
+                  key={company.name}
+                  href={company.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cardClass}
+                  {...motionProps}
+                >
+                  {body}
+                </motion.a>
+              );
+            }
+
+            return (
+              <motion.div key={company.name} className={cardClass} {...motionProps}>
+                {body}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
